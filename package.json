@@ -2,5 +2,7 @@
     "name": "chatapp",
     "version": "0.0.1",
     "description": "A chat app made in js socket.io",
-    "dependencies": {}
-  }
+    "dependencies": {
+        "socketio": "^1.0.0"
+    }
+}
