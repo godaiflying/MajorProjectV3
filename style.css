@@ -35,7 +35,7 @@ a:hover {
     text-decoration: underline;
 }
 
-#wrapper{
+#wrapper, #loginform{
   margin: 0 auto;
   padding-bottom: 25px;
   background: #eee;
@@ -43,6 +43,16 @@ a:hover {
   max-width: 100%;
   border: 2px solid #212121;
   border-radius: 4px;
+}
+#loginform {
+    padding-top: 18px;
+    text-align: center;
+}
+   
+#loginform p {
+    padding: 15px 25px;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 #chatbox {
