@@ -6,12 +6,23 @@
     </head>
 
     <body>
-        <ul id="messages"></ul>
-        <form id="form" action="">
-            <input id="input" autocomplete="off" /><button>Send</button>
-        </form>
+      <div id="wrapper">
+        <div id="menu"></div>
+        <p class="welcome">Welcome, <b id="user"></b></p>
+        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+      
 
-        <script src="/socket.io/socket.io.js"></script>
+        <!-- This is the message area, can be referenced using ajax-->
+        <div id="chatbox"></div>
+
+
+        <form name="message" action="">
+            <input name="usermsg" type="text" id="usermsg"/>
+            <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+        </form>
+      </div>
+      <script src="/socket.io/socket.io.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       
     <script>
         var socket = io();
