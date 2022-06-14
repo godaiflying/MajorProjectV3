@@ -13,10 +13,12 @@
         </div>
 
         <!-- This is the message area, can be referenced using ajax-->
-        <div id="chatbox"></div>
+        <div id="chatbox">
+          
+        </div>
 
 
-        <form name="message" action="">
+        <form id="message" action="">
             <input name="usermsg" type="text" id="usermsg"/>
             <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
         </form>
@@ -27,9 +29,9 @@
     <script>
         var socket = io();
   
-        var messages = document.getElementById('messages');
-        var form = document.getElementById('form');
-        var input = document.getElementById('input');
+        var messages = document.getElementById('chatbox');
+        var form = document.getElementById('message');
+        var input = document.getElementById('usermsg');
   
         form.addEventListener('submit', function(e) {
           e.preventDefault();

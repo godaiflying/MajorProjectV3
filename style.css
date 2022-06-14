@@ -67,6 +67,15 @@ a:hover {
     overflow: auto;
     border-radius: 4px;
     border-bottom: 4px solid #a7a7a7;
+    list-style-type: none;
+}
+#chatbox > li{
+    padding: 0.5rem 1rem;
+}
+
+/* every odd value is gray*/
+#chatbox > li:nth-child(odd){
+    background: gray;
 }
 #usermsg {
     flex: 1;
