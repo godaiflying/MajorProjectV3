@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/style.css', (req, res) => {
+  res.sendFile(__dirname + '/style.css');
+});
+
 io.on('connection', (socket) => {
   socket.on('chat message', msg => {
     io.emit('chat message', msg);
