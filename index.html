@@ -29,34 +29,54 @@
     <script>
         var socket = io();
   
-        var messages = document.getElementById('chatbox');
-        var form = document.getElementById('message');
-        var input = document.getElementById('usermsg');
-  
-        form.addEventListener('submit', function(e) {
+        var messageContainer = document.getElementById('chatbox');
+        var userForm = document.getElementById('message');
+        var userinput = document.getElementById('usermsg');
+
+        const userName = prompt('What is your name?')
+
+        appendMessage('You joined')
+        socket.emit('new-user', name)
+
+        //getting the message from the input box.
+        //and sending it to the server.
+        userForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
+          if (userinput.value) {
+            //sends the user screen a message
+            appendMessage(`You: ${userinput.value}`)
+            socket.emit('chat message', userinput.value);
+            userinput.value = '';
           }
         });
-  
-        socket.on('chat message', function(msg) {
-          var item = document.createElement('li');
-          item.textContent = msg;
-          messages.appendChild(item);
+        
+        //printing the message into the chatbox by creating an list element for each message
+        socket.on('chat message', function(data) {
+          appendMessage(`${data.name}: ${data.msg}`)
+          //so that the window will continue to scroll
           window.scrollTo(0, document.body.scrollHeight);
         });
         
+        socket.on('user-connected', function(name){
+          appendMessage(`${name} connected`)
+        })
         //user wants to disconnect
         $(document).ready(function(){
           $("#exit").click(function(){
             var exit = confirm("Are you sure you want to end the session?");
+            alert("You have exit")
             if(exit==true){
               socket.disconnect()
             }      
           });
         });
+
+        function appendMessage(message){
+          var item = document.createElement('li');
+          item.textContent = message
+          messageContainer.appendChild(item);
+        }
+
 
 
     

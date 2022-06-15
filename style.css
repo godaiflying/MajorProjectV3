@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 body {
     margin: 20px auto;
     font-family: "Lato";
@@ -44,16 +45,6 @@ a:hover {
   border: 2px solid #212121;
   border-radius: 4px;
 }
-#loginform {
-    padding-top: 18px;
-    text-align: center;
-}
-   
-#loginform p {
-    padding: 15px 25px;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
 
 #chatbox {
     text-align: left;
@@ -71,12 +62,10 @@ a:hover {
 }
 #chatbox > li{
     padding: 0.5rem 1rem;
+    color: --white;
 }
 
-/* every odd value is gray*/
-#chatbox > li:nth-child(odd){
-    background: gray;
-}
+
 #usermsg {
     flex: 1;
     border-radius: 4px;
