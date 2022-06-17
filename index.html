@@ -6,33 +6,36 @@
     </head>
 
     <body>
+      <!-- simple html setup -->
       <div id="wrapper">
         <div id="menu">
           <p class="welcome">Welcome, <b id="user"></b></p>
           <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
         </div>
 
-        <!-- This is the message area, can be referenced using ajax-->
+        <!-- This is the message area or where the messages are printed -->
         <div id="chatbox">
           
         </div>
 
-
+        <!--getting the user input-->
         <form id="message" action="">
             <input name="usermsg" type="text" id="usermsg"/>
             <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
         </form>
       </div>
+      <!-- fetching socketio and jquery -->
       <script src="/socket.io/socket.io.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       
     <script>
         var socket = io();
-        //getting variables from html
+        //fetching the elements from html so that they can be edited in javascript
         var messageContainer = document.getElementById('chatbox');
         var userForm = document.getElementById('message');
         var userinput = document.getElementById('usermsg');
 
+        //fetching the users name from an alert
         const userName = prompt('What is your name?')
 
         appendMessage('You joined')
@@ -56,7 +59,7 @@
           //so that the window will continue to scroll
           window.scrollTo(0, document.body.scrollHeight);
         });
-        
+        //fetching the username and printing it
         socket.on('user-connected', function(name){
           appendMessage(`${name} connected`)
         })
@@ -70,7 +73,7 @@
             }      
           });
         });
-
+        // this is a function that prints a message onto the chatbox it also cleans upcode.
         function appendMessage(message){
           var item = document.createElement('li');
           item.textContent = message
